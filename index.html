@@ -146,16 +146,19 @@
             box-shadow: 0 10px 30px rgba(0, 186, 191, 0.2);
             border-color: var(--brand-teal);
         }
+        
         .song-tile.latest {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 165, 0, 0.15));
             border: 3px solid #FFD700;
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
             animation: pulse-glow 2s infinite;
         }
+        
         .song-tile.latest:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
         }
+        
         .latest-badge {
             position: absolute;
             top: -10px;
@@ -171,16 +174,11 @@
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
             z-index: 10;
         }
+        
         @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 35px rgba(255, 215, 0, 0.5);
-            }
-            100% {
-                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-            }
+            0% { box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 8px 35px rgba(255, 215, 0, 0.5); }
+            100% { box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); }
         }
         
         .song-timestamp {
@@ -239,30 +237,15 @@
             color: white;
         }
         
-        .submit-btn {
-            background: linear-gradient(45deg, var(--brand-teal), var(--light-teal));
+        .modal-content {
+            border-radius: 20px;
             border: none;
-            border-radius: 50px;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
+        }
+        
+        .modal-header {
+            background: linear-gradient(45deg, var(--brand-teal), var(--light-teal));
             color: white;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .section-title {
-            color: var(--brand-teal);
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-align: center;
+            border-radius: 20px 20px 0 0;
         }
         
         .lyrics-display {
@@ -278,6 +261,45 @@
             color: #333;
         }
         
+        .loading {
+            text-align: center;
+            color: var(--brand-teal);
+            padding: 2rem;
+        }
+        
+        .spinner-border {
+            color: var(--brand-teal);
+        }
+        
+        .success-message {
+            background: rgba(0, 186, 191, 0.15);
+            border: 2px solid rgba(0, 186, 191, 0.5);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            color: var(--brand-teal);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .hidden-iframe {
+            display: none;
+        }
+        
+        /* Logo fallback and error handling */
+        .logo-fallback {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: none;
+        }
+        
+        .logo-fallback.show {
+            display: block;
+        }
+        
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .hero-section {
@@ -288,11 +310,11 @@
             .hero-logo {
                 max-width: 250px;
                 max-height: 150px;
-                transform: none !important; /* Prevent tilting on mobile */
+                transform: none !important;
             }
             
             .hero-logo:hover {
-                transform: none !important; /* Disable hover effects on mobile */
+                transform: none !important;
             }
             
             .cinewav-logo {
@@ -373,7 +395,6 @@
                 font-size: 0.95rem;
             }
             
-            /* Stack form elements on mobile */
             .row .col-md-9,
             .row .col-md-3 {
                 margin-bottom: 0.5rem;
@@ -416,71 +437,15 @@
                 right: 15px;
             }
         }
-        
-        .modal-content {
-            border-radius: 20px;
-            border: none;
-        }
-        
-        .modal-header {
-            background: linear-gradient(45deg, var(--brand-teal), var(--light-teal));
-            color: white;
-            border-radius: 20px 20px 0 0;
-        }
-        
-        .lyrics-display {
-            background: rgba(0, 186, 191, 0.05);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--brand-teal);
-            font-family: 'Courier New', monospace;
-            line-height: 1.8;
-            white-space: pre-line;
-        }
-        
-        .loading {
-            text-align: center;
-            color: var(--brand-teal);
-            padding: 2rem;
-        }
-        
-        .spinner-border {
-            color: var(--brand-teal);
-        }
-        
-        .success-message {
-            background: rgba(0, 186, 191, 0.15);
-            border: 2px solid rgba(0, 186, 191, 0.5);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            color: var(--brand-teal);
-            font-weight: 600;
-            text-align: center;
-        }
-        
-        .hidden-iframe {
-            display: none;
-        }
-        /* Logo fallback and error handling */
-        .logo-fallback {
-            color: white;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            display: none;
-        }
-        
-        .logo-fallback.show {
-            display: block;
-        }
     </style>
 </head>
 <body>
     <!-- Hidden iframes for form submissions -->
     <iframe name="dream-frame" class="hidden-iframe"></iframe>
     <iframe name="lyrics-frame" class="hidden-iframe"></iframe>
+    
+    <!-- CineWav Logo (optional - if you have the logo file) -->
+    <!-- <img src="cinewav-logo.png" alt="CineWav" class="cinewav-logo" onerror="this.style.display='none'"> -->
     
     <!-- Page Toggle Button -->
     <div class="page-toggle">
@@ -817,17 +782,20 @@
             DREAMS_RANGE: 'Form Responses 2!A:B',
             LYRICS_RANGE: 'Form Responses 1!A:C'
         };
+
         // Handle logo loading error
         function handleLogoError() {
             console.log('Logo failed to load, showing fallback text');
             document.getElementById('hero-logo').style.display = 'none';
             document.getElementById('logo-fallback').classList.add('show');
         }
+
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             loadSongs();
             loadRecentDreams();
         });
+
         // FIXED: Parse date in DD/MM/YYYY HH:MM:SS format
         function parseDate(dateString) {
             if (!dateString || dateString === 'Timestamp' || dateString === '') {
@@ -886,6 +854,7 @@
             console.warn('Could not parse date string:', cleanDateString);
             return new Date(0);
         }
+
         // FIXED: Format timestamp for display with better error handling
         function formatTimestamp(timestamp) {
             if (!timestamp) {
@@ -918,6 +887,7 @@
                 return 'Format Error';
             }
         }
+
         // Toggle between user and admin pages
         function togglePage() {
             const userPage = document.getElementById('user-page');
@@ -936,6 +906,7 @@
                 loadRecentDreams();
             }
         }
+
         // Submit dream (now using Google Forms)
         function submitDream(event) {
             const dreamInput = document.getElementById('dream-input');
@@ -962,6 +933,7 @@
             // Allow the form to submit to Google Forms
             return true;
         }
+
         // Submit lyrics (now using Google Forms)
         function submitLyrics(event) {
             const titleInput = document.getElementById('lyrics-title');
@@ -991,6 +963,7 @@
             // Allow the form to submit to Google Forms
             return true;
         }
+
         async function loadSongs() {
             const container = document.getElementById('songs-container');
             const loading = document.getElementById('songs-loading');
@@ -1030,6 +1003,7 @@
                 `;
             }
         }
+
         async function fetchSongsFromSheet() {
             const url = `https://sheets.googleapis.com/v4/spreadsheets/${CONFIG.LYRICS_SHEET_ID}/values/${CONFIG.LYRICS_RANGE}?key=${CONFIG.API_KEY}`;
             
@@ -1062,6 +1036,7 @@
             
             return songs;
         }
+
         function createSongTile(song, index) {
             const tile = document.createElement('div');
             tile.className = index === 0 ? 'song-tile latest' : 'song-tile';
@@ -1095,6 +1070,7 @@
             
             return tile;
         }
+
         function showSongModal(song) {
             document.getElementById('modal-song-title').textContent = song.title;
             document.getElementById('modal-lyrics-content').textContent = song.lyrics;
@@ -1103,6 +1079,7 @@
             const modal = new bootstrap.Modal(document.getElementById('songModal'));
             modal.show();
         }
+
         async function loadRecentDreams() {
             const container = document.getElementById('recent-dreams');
             const loading = document.getElementById('dreams-loading');
@@ -1142,6 +1119,7 @@
                 `;
             }
         }
+
         async function fetchDreamsFromSheet() {
             const url = `https://sheets.googleapis.com/v4/spreadsheets/${CONFIG.DREAMS_SHEET_ID}/values/${CONFIG.DREAMS_RANGE}?key=${CONFIG.API_KEY}`;
             
@@ -1174,6 +1152,7 @@
             
             return dreams;
         }
+
         function createDreamTile(dream) {
             const tile = document.createElement('div');
             tile.className = 'song-tile mb-3';
@@ -1192,9 +1171,11 @@
             
             return tile;
         }
+
         // Global variables for AI generation
         let generatedLyrics = '';
         let currentTaskId = '';
+
         // Load dreams and generate lyrics
         async function loadDreamsAndGenerateLyrics() {
             const claudeApiKey = document.getElementById('claude-api-key').value.trim();
@@ -1258,6 +1239,7 @@
                 alert(`Error: ${error.message}`);
             }
         }
+
         // Fetch latest dreams from spreadsheet
         async function fetchLatestDreams(limit = 50) {
             try {
@@ -1268,6 +1250,7 @@
                 throw new Error('Failed to load dreams from spreadsheet');
             }
         }
+
         // Generate lyrics using Claude API with CORS proxy
         async function generateLyricsWithClaude(dreams, apiKey) {
             const dreamsText = dreams.map((dream, index) => `- ${dream}`).join('\n');
@@ -1275,6 +1258,7 @@
             const prompt = `Create 2-minute song lyrics that incorporates the following dreams about Singapore River, subtracting any hate or inappropriate content:
 ${dreamsText}
 Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Structure it with verses and chorus. Focus on themes of hope, community, nature, and the future of Singapore's waterways.`;
+
             // Using a CORS proxy service
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
             const targetUrl = 'https://api.anthropic.com/v1/messages';
@@ -1320,6 +1304,7 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
                 return await generateLyricsAlternative(dreams);
             }
         }
+
         // Alternative lyrics generation using a fallback method
         async function generateLyricsAlternative(dreams) {
             // Since we can't directly call Claude API from browser, we'll create 
@@ -1377,6 +1362,7 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
             
             return lyrics;
         }
+
         // Generate song with Suno API
         async function generateSunoSong() {
             const sunoApiKey = document.getElementById('suno-api-key').value.trim();
@@ -1390,6 +1376,7 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
                 alert('Please generate lyrics first!');
                 return;
             }
+
             const statusDiv = document.getElementById('generation-status');
             const statusText = document.getElementById('status-text');
             
@@ -1492,6 +1479,7 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
                 alert(errorMsg);
             }
         }
+
         // Call Suno API with CORS proxy
         async function callSunoAPI(lyrics, config, apiKey) {
             const sunoUrl = "https://apibox.erweima.ai/api/v1/generate";
@@ -1589,6 +1577,7 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
             console.log('All API calls failed, creating mock response...');
             return createMockSunoResponse(config);
         }
+
         // Create mock response when API calls fail
         function createMockSunoResponse(config) {
             const mockTaskId = 'mock_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -1605,6 +1594,7 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
                 }
             };
         }
+
         // Publish generated lyrics to user portal
         async function publishGeneratedLyrics() {
             if (!generatedLyrics) {
@@ -1653,3 +1643,6 @@ Make the lyrics inspiring, cohesive, and celebratory of Singapore's river. Struc
                 alert('Error publishing lyrics. Please try again.');
             }
         }
+    </script>
+</body>
+</html>
